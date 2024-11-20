@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <!-- Correctly place the link to your CSS file in the <head> section -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/project/create">Create Project</a>
+    <ul>
+        {% for project in projects %}
+            <li><a href="/project/{{ project.id }}">{{ project.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

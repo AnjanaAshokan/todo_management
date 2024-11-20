@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <!-- Place the link to the CSS file in the <head> section -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Project Title" required>
+        <button type="submit">Create Project</button>
+    </form>
+</body>
+</html>

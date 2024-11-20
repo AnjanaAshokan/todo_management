@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project View</title>
+    <!-- Place the link to the CSS file inside the <head> section -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ project.title }}</h1>
+    <a href="/project/{{ project.id }}/export">Export Project as Gist</a>
+
+    <form method="POST">
+        <input type="text" name="description" placeholder="New Todo" required>
+        <button type="submit">Add Todo</button>
+    </form>
+
+    <ul>
+        {% for todo in project.todos %}
+            <li>
+                {{ todo.description }} - {{ 'Done' if todo.status else 'Pending' }}
+                <a href="/todo/{{ todo.id }}/toggle">
+                    {{ 'Mark as Pending' if todo.status else 'Mark as Done' }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
